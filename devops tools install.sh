@@ -601,7 +601,8 @@ if ask_install "Apache Tomcat ${TOMCAT_VERSION} (JDK 17 compatible)"; then
 
     cd /opt || exit
 
-    wget ${TOMCAT_URL}
+    # --no-check-certificate: bypass SSL certificate verification issues on Apache mirrors
+    wget --no-check-certificate ${TOMCAT_URL}
 
     if [ -f "/opt/${TOMCAT_TAR}" ]; then
 
